@@ -48,7 +48,7 @@ Updated to **Vendure v3.5.0** 🥳
 
 ## Deploy with no manual setup in minutes
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/6DeBLr?referralCode=-Yg50p)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/deploy/6DeBLr?referralCode=-Yg50p)
 
 ## Preconfigured integrations
 
