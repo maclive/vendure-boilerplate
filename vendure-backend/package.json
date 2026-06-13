@@ -1,45 +1,42 @@
 {
-  "name": "vendure-boilerplate",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev:server": "ts-node ./src/index.ts",
-    "dev:worker": "ts-node ./src/index-worker.ts",
-    "dev": "concurrently pnpm:dev:*",
-    "build": "tsc",
-    "seed:once": "node ./dist/seed-once.js",
-    "start:server": "node ./dist/index.js",
-    "start:worker": "node ./dist/index-worker.js",
-    "start": "pnpm seed:once && concurrently pnpm:start:*"
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^8.1.4",
-    "@vendure/admin-ui-plugin": "^3.5.0",
-    "@vendure/asset-server-plugin": "3.5.0",
-    "@vendure/core": "3.5.0",
-    "@vendure/create": "3.5.0",
-    "@vendure/email-plugin": "3.5.0",
-    "@vendure/payments-plugin": "^3.5.0",
-    "axios": "^1.6.0",
-    "dotenv": "17.2.3",
-    "pg": "8.16.3",
-    "stripe": "^17.5.0",
-    "typeorm": "^0.3.20"
-  },
-  "devDependencies": {
-    "@vendure/cli": "3.5.0",
-    "concurrently": "9.2.1",
-    "typescript": "5.8.2"
-  }
+"name": "vendure-boilerplate",
+"version": "0.1.0",
+"private": true,
+"scripts": {
+"dev:server": "ts-node ./src/index.ts",
+"dev:worker": "ts-node ./src/index-worker.ts",
+"dev": "concurrently pnpm:dev:*",
+"build": "tsc",
+"seed:once": "node ./dist/seed-once.js",
+"start:server": "node ./dist/index.js",
+"start:worker": "node ./dist/index-worker.js",
+"start": "pnpm seed:once && concurrently pnpm:start:*"
+},
+"dependencies": {
+"@sendgrid/mail": "^8.1.4",
+"@vendure/admin-ui-plugin": "^3.5.0",
+"@vendure/asset-server-plugin": "3.5.0",
+"@vendure/core": "3.5.0",
+"@vendure/create": "3.5.0",
+"@vendure/email-plugin": "3.5.0",
+"@vendure/payments-plugin": "^3.5.0",
+"axios": "^1.6.0",
+"dotenv": "17.2.3",
+"pg": "8.16.3",
+"stripe": "^17.5.0",
+"typeorm": "^0.3.20"
+},
+"devDependencies": {
+"@vendure/cli": "3.5.0",
+"concurrently": "9.2.1",
+"typescript": "5.8.2"
+},
+"pnpm": {
+"onlyBuiltDependencies": [
+"sharp",
+"bcrypt",
+"@nestjs/core",
+"@apollo/protobufjs"
+]
 }
-
-{
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "bcrypt",
-      "@nestjs/core",
-      "@apollo/protobufjs"
-    ]
-  }
 }
