@@ -9,7 +9,7 @@
 "seed:once": "node ./dist/seed-once.js",
 "start:server": "node ./dist/index.js",
 "start:worker": "node ./dist/index-worker.js",
-"start": "node ./dist/index.js"
+"start": "node ./dist/seed-once.js && node ./dist/index.js"
 },
 "dependencies": {
 "@sendgrid/mail": "^8.1.4",
