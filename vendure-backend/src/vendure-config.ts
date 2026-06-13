@@ -158,17 +158,13 @@ export const config: VendureConfig = {
             },
         } as EmailPluginOptions | EmailPluginDevModeOptions),
 
-        AdminUiPlugin.init({
-            route: 'admin',
-            port: 3002,
-            adminUiConfig: {
-                apiHost: isDev
-                    ? undefined
-                    : `https://${process.env.PUBLIC_DOMAIN}`,
-                apiPort: isDev
-                    ? +(process.env.PORT || 3000)
-                    : undefined,
-            },
-        }),
+       AdminUiPlugin.init({
+    route: 'admin',
+    port: 3002,
+    adminUiConfig: {
+        apiHost: 'auto',
+        apiPort: 'auto',
+    },
+}),
     ],
 };
