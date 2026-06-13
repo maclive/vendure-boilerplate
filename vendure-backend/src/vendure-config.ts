@@ -5,7 +5,12 @@ DefaultSchedulerPlugin,
 DefaultSearchPlugin,
 VendureConfig,
 } from '@vendure/core';
-import { defaultEmailHandlers, EmailPlugin, EmailPluginDevModeOptions, EmailPluginOptions } from '@vendure/email-plugin';
+import {
+defaultEmailHandlers,
+EmailPlugin,
+EmailPluginDevModeOptions,
+EmailPluginOptions,
+} from '@vendure/email-plugin';
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { StripePlugin } from '@vendure/payments-plugin/package/stripe';
@@ -26,21 +31,27 @@ await sgMail.send({
 to: email.recipient,
 from: email.from,
 subject: email.subject,
-html: email.body
+html: email.body,
 });
 }
 }
 
-const emailPluginOptions = isDev || !process.env.SENDGRID_API_KEY ? {
+const emailPluginOptions =
+isDev || !process.env.SENDGRID_API_KEY
+? {
 devMode: true,
-outputPath: path.join(__dirname, '../static/email/test-emails'),
-route: 'mailbox'
-} : {
+outputPath: path.join(
+__dirname,
+'../static/email/test-emails'
+),
+route: 'mailbox',
+}
+: {
 emailSender: new SendgridEmailSender(),
 transport: {
 type: 'sendgrid',
-apiKey: process.env.SENDGRID_API_KEY
-}
+apiKey: process.env.SENDGRID_API_KEY,
+},
 };
 
 export const config: VendureConfig = {
@@ -50,16 +61,22 @@ adminApiPath: 'admin-api',
 shopApiPath: 'shop-api',
 
 ```
-    ...(isDev ? {
-        adminApiPlayground: {
-            settings: { 'request.credentials': 'include' },
-        },
-        adminApiDebug: true,
-        shopApiPlayground: {
-            settings: { 'request.credentials': 'include' },
-        },
-        shopApiDebug: true,
-    } : {}),
+    ...(isDev
+        ? {
+              adminApiPlayground: {
+                  settings: {
+                      'request.credentials': 'include',
+                  },
+              },
+              adminApiDebug: true,
+              shopApiPlayground: {
+                  settings: {
+                      'request.credentials': 'include',
+                  },
+              },
+              shopApiDebug: true,
+          }
+        : {}),
 },
 
 authOptions: {
@@ -75,7 +92,9 @@ authOptions: {
 
 dbConnectionOptions: {
     type: 'postgres',
-    migrations: [path.join(__dirname, './migrations/*.+(js|ts)')],
+    migrations: [
+        path.join(__dirname, './migrations/*.+(js|ts)'),
+    ],
     logging: false,
 
     database: process.env.DB_NAME,
@@ -114,7 +133,11 @@ plugins: [
 
     StripePlugin.init({
         storeCustomersInStripe: true,
-        paymentIntentCreateParams: (injector, ctx, order) => {
+        paymentIntentCreateParams: (
+            injector,
+            ctx,
+            order
+        ) => {
             return {
                 description: `Order #${order.code} for ${order.customer?.emailAddress}`,
             };
@@ -122,9 +145,11 @@ plugins: [
     }),
 
     DefaultSchedulerPlugin.init(),
+
     DefaultJobQueuePlugin.init({
         useDatabaseForBuffer: true,
     }),
+
     DefaultSearchPlugin.init({
         bufferUpdates: false,
         indexStockStatus: true,
