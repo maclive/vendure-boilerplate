@@ -25,6 +25,8 @@
 "stripe": "13.11.0",
 "typeorm": "^0.3.20"
 },
+
+  "pnpm": { "onlyBuiltDependencies": [ "sharp", "bcrypt", "@nestjs/core", "@apollo/protobufjs" ] } }
 "devDependencies": {
 "@vendure/cli": "3.5.0",
 "concurrently": "9.2.1",
